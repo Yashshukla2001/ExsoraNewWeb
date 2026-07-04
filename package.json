@@ -1,4 +1,8 @@
+
 {
+  "engines": {
+    "node": "18.x"
+  },
   "name": "cosmoq",
   "private": true,
   "version": "1.0.0",
