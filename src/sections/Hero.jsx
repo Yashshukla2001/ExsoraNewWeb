@@ -39,7 +39,7 @@ function AnimatedPill() {
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden pb-24 pt-36 sm:pt-44">
+    <section id="top" className="relative overflow-hidden pb-16 pt-28 sm:pb-24 sm:pt-44">
       <AuroraBackground />
 
       {/* 3-D particle field */}
@@ -49,14 +49,14 @@ export default function Hero() {
         </Suspense>
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-5 text-center sm:px-8">
+      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-4 text-center sm:px-8">
         <AnimatedPill />
 
         <motion.h1
           initial={{ opacity: 0, y: 28, filter: 'blur(12px)' }}
           animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
           transition={{ duration: 0.95, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-          className="text-balance text-[2.6rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl"
+          className="text-balance text-3xl font-semibold leading-[1.08] tracking-tight text-white sm:text-6xl md:text-7xl"
         >
           Next-gen enterprise <br className="hidden sm:block" />
           with AI Agents
@@ -83,7 +83,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      <div className="relative z-10 mt-16 px-5 sm:mt-20 sm:px-8">
+      <div className="relative z-10 mt-10 px-4 sm:mt-20 sm:px-8">
         <DashboardMock />
       </div>
     </section>

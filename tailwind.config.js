@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ['./index.html', './src/**/*.{js,jsx}'],
   theme: {
     extend: {
@@ -26,14 +27,14 @@ export default {
         'aurora-hero':
           'radial-gradient(60% 50% at 18% 100%, rgba(255,140,60,0.35) 0%, rgba(255,140,60,0) 60%), radial-gradient(60% 50% at 82% 100%, rgba(61,124,255,0.4) 0%, rgba(61,124,255,0) 60%), radial-gradient(40% 30% at 50% 100%, rgba(180,90,255,0.25) 0%, rgba(180,90,255,0) 60%)',
         'sphere-gradient':
-  'conic-gradient(from 180deg at 50% 50%, #1E3A8A 0deg, #2563EB 70deg, #93C5FD 140deg, #FFFFFF 180deg, #67E8F9 240deg, #06B6D4 300deg, #1E3A8A 360deg)',
+          'conic-gradient(from 180deg at 50% 50%, #1E3A8A 0deg, #2563EB 70deg, #93C5FD 140deg, #FFFFFF 180deg, #67E8F9 240deg, #06B6D4 300deg, #1E3A8A 360deg)',
         'cta-button':
           'linear-gradient(90deg, #ff8a3d 0%, #ffc15e 35%, #5ad1ff 70%, #3d7cff 100%)',
         'footer-glow':
-  'radial-gradient(60% 80% at 20% 50%, rgba(37,99,235,0.25), transparent 60%), radial-gradient(60% 80% at 80% 50%, rgba(6,182,212,0.3), transparent 60%)',
+          'radial-gradient(60% 80% at 20% 50%, rgba(37,99,235,0.25), transparent 60%), radial-gradient(60% 80% at 80% 50%, rgba(6,182,212,0.3), transparent 60%)',
         'gradient-radial': 'radial-gradient(circle, var(--tw-gradient-stops))',
       },
-       boxShadow: {
+      boxShadow: {
         glass: '0 8px 32px rgba(0,0,0,0.45)',
         'glow-orange': '0 0 40px rgba(255,140,60,0.35)',
         'glow-blue': '0 0 40px rgba(61,124,255,0.35)',

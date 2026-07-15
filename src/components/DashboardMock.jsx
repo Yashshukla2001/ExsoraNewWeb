@@ -29,10 +29,10 @@ export default function DashboardMock() {
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="relative mx-auto w-full max-w-6xl overflow-hidden rounded-2xl"
+      className="dashboard-mock-shell relative mx-auto w-full max-w-6xl overflow-hidden rounded-2xl"
       style={{ background: 'rgba(10,12,20,0.92)', border: '1px solid rgba(255,255,255,0.08)', backdropFilter: 'blur(24px)', boxShadow: '0 40px 80px rgba(0,0,0,0.6)' }}
     >
-      <div className="flex min-h-[440px]">
+      <div className="flex min-h-0">
 
         {/* ── Sidebar ── */}
         <div className="hidden w-44 shrink-0 flex-col border-r border-white/5 bg-black/30 p-5 sm:flex">
@@ -62,7 +62,7 @@ export default function DashboardMock() {
             <div className="relative ml-auto flex items-center gap-2 overflow-hidden rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs text-secondary">
               <HiOutlineSearch className="shrink-0" />
               {/* animated search text */}
-              <div className="relative h-4 w-40 overflow-hidden">
+              <div className="relative h-4 w-20 overflow-hidden sm:w-40">
                 {RANDOM_SEARCHES.map((q, i) => (
                   <motion.span key={q} className="absolute left-0 top-0 whitespace-nowrap text-xs text-muted"
                     initial={{ y: 16, opacity: 0 }}
@@ -86,7 +86,7 @@ export default function DashboardMock() {
                 transition={{ delay: 0.1 + i * 0.08, duration: 0.55, ease: [0.16,1,0.3,1] }}
                 className="rounded-xl border border-white/6 bg-white/[0.04] p-4"
               >
-                <div className="text-2xl font-bold text-white">
+                <div className="text-xl font-bold text-white sm:text-2xl">
                   <CountUp value={s.value} prefix={s.prefix} suffix={s.suffix} delay={0.3 + i * 0.1} duration={1.2} />
                 </div>
                 <div className="mt-1 text-xs text-muted">{s.label}</div>
@@ -96,7 +96,7 @@ export default function DashboardMock() {
           </div>
 
           {/* bottom panels */}
-          <div className="grid flex-1 grid-cols-1 gap-3 p-4 pt-0 sm:grid-cols-3">
+          <div className="grid flex-1 grid-cols-1 gap-3 p-4 pt-0 sm:grid-cols-3 sm:px-6 sm:pb-6">
             {/* Top Products */}
             <div className="rounded-xl border border-white/6 bg-white/[0.03] p-4">
               <div className="mb-3 text-sm font-semibold text-white">Top Products</div>
@@ -124,7 +124,7 @@ export default function DashboardMock() {
             {/* Sales Mapping */}
             <div className="rounded-xl border border-white/6 bg-white/[0.03] p-4">
               <div className="mb-3 text-sm font-semibold text-white">Sales Mapping</div>
-              <div className="flex h-28 items-end gap-1.5">
+              <div className="flex h-20 items-end gap-1.5 sm:h-28">
                 {SALES_MAPPING.map((h, i) => (
                   <div key={i} className="relative flex flex-1 flex-col items-center gap-0.5" style={{ height: '100%' }}>
                     <div className="relative w-full flex-1">
@@ -153,7 +153,7 @@ export default function DashboardMock() {
             {/* Volume vs Service */}
             <div className="rounded-xl border border-white/6 bg-white/[0.03] p-4">
               <div className="mb-3 text-sm font-semibold text-white">Volume vs Service</div>
-              <div className="flex h-28 gap-2">
+              <div className="flex h-20 gap-2 sm:h-28">
                 {VOL_SERVICE.map((pair, i) => (
                   <div key={i} className="flex flex-1 items-end gap-0.5">
                     <div className="relative flex-1" style={{ height: '100%' }}>

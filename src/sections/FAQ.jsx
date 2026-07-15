@@ -21,7 +21,7 @@ function FaqItem({ q, a, open, onClick }) {
       <button
         data-cursor="link"
         onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        className="flex w-full items-center justify-between gap-3 px-4 py-4 text-left sm:px-6 sm:py-5"
         aria-expanded={open}
       >
         <span className="text-sm font-medium text-white sm:text-base">{q}</span>
@@ -38,7 +38,7 @@ function FaqItem({ q, a, open, onClick }) {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <p className="px-6 pb-5 text-sm leading-relaxed text-secondary">{a}</p>
+            <p className="px-4 pb-4 text-sm leading-relaxed text-secondary sm:px-6 sm:pb-5">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -50,14 +50,14 @@ export default function FAQ() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section id="faq" className="px-5 py-24 sm:px-8">
+   <section id="faq" className="scroll-mt-24 px-4 py-14 sm:py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal>
           <Eyebrow icon={HiOutlineQuestionMarkCircle}>FAQ</Eyebrow>
         </Reveal>
         <div className="mt-3 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal delay={0.05}>
-            <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-balance text-2xl font-semibold tracking-tight text-white sm:text-4xl">
               Curious About EXSORA?
             </h2>
           </Reveal>

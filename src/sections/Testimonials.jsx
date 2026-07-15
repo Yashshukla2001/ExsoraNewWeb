@@ -31,12 +31,12 @@ export default function Testimonials() {
   const item = T[idx]
 
   return (
-    <section className="px-5 py-24 sm:px-8">
+    <section className="px-4 py-14 sm:py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
             <Eyebrow icon={HiOutlineChatBubbleBottomCenterText}>Testimonials</Eyebrow>
-            <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">Trusted by customers</h2>
+            <h2 className="mt-2 text-balance text-2xl font-semibold tracking-tight text-white sm:text-4xl">Trusted by customers</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="max-w-xs text-sm text-secondary">Proven outcomes shared by industry leaders and innovators.</p>
@@ -61,7 +61,7 @@ export default function Testimonials() {
                 <div className="relative grid gap-0 lg:grid-cols-[320px_1fr]">
                   {/* Photo panel */}
                   <div className="relative overflow-hidden lg:h-full">
-                    <div className="aspect-[4/3] w-full lg:aspect-auto lg:h-full">
+                    <div className="aspect-[16/9] w-full sm:aspect-[4/3] lg:aspect-auto lg:h-full">
                       <img src={item.photo} alt={item.name}
                         className="h-full w-full object-cover"
                         style={{ minHeight: 220 }}
@@ -70,7 +70,7 @@ export default function Testimonials() {
                     </div>
                   </div>
                   {/* Content panel */}
-                  <div className="flex flex-col justify-between p-8 sm:p-12">
+                  <div className="flex flex-col justify-between p-5 sm:p-8 lg:p-12">
                     <div>
                       {/* quote mark */}
                       <div className="mb-5 text-5xl font-serif leading-none text-white/15 select-none">"</div>
@@ -101,11 +101,11 @@ export default function Testimonials() {
 
             {/* nav buttons */}
             <button onClick={() => go(-1)} aria-label="Previous" data-cursor="link"
-              className="absolute left-4 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full glass text-white shadow-glass hover:bg-white/10 z-10">
+              className="absolute left-2 top-1/2 -translate-y-1/2 hidden h-9 w-9 sm:grid place-items-center rounded-full glass text-white shadow-glass hover:bg-white/10 z-10">
               <HiOutlineChevronLeft />
             </button>
             <button onClick={() => go(1)} aria-label="Next" data-cursor="link"
-              className="absolute right-4 top-1/2 -translate-y-1/2 grid h-10 w-10 place-items-center rounded-full glass text-white shadow-glass hover:bg-white/10 z-10">
+              className="absolute right-2 top-1/2 -translate-y-1/2 hidden h-9 w-9 sm:grid place-items-center rounded-full glass text-white shadow-glass hover:bg-white/10 z-10">
               <HiOutlineChevronRight />
             </button>
           </div>

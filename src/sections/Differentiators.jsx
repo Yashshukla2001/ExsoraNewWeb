@@ -8,7 +8,7 @@ import Reveal from '../components/Reveal'
 ══════════════════════════════════════ */
 function SpeedVisual() {
   return (
-    <div className="relative h-56 w-full overflow-hidden">
+    <div className="relative h-40 w-full overflow-hidden sm:h-56">
       {/* grid */}
       <div className="absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:28px_28px]" />
       {/* rotating glow orb */}
@@ -51,7 +51,7 @@ const NODES = [[80,40],[160,40],[220,80],[280,120],[160,120],[80,120],[160,160],
 
 function CapabilitiesVisual() {
   return (
-    <div className="relative h-56 w-full overflow-hidden">
+    <div className="relative h-40 w-full overflow-hidden sm:h-56">
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 70% at 70% 50%,rgba(255,140,60,0.18),rgba(61,124,255,0.18),transparent 80%)' }} />
       <svg viewBox="0 0 360 220" className="absolute inset-0 h-full w-full" fill="none">
         {CIRCUIT_PATHS.map((d, i) => (
@@ -68,6 +68,7 @@ function CapabilitiesVisual() {
           { points: [[280,120],[280,180],[220,180],[160,140]], color: '#5ad1ff', delay: 1.6 },
         ].map((dot, idx) => (
           <motion.circle key={idx} r={3} fill={dot.color}
+           cx={dot.points[0][0]} cy={dot.points[0][1]}
             animate={{
               cx: dot.points.map(p => p[0]),
               cy: dot.points.map(p => p[1]),
@@ -97,11 +98,11 @@ const SLIDER_CONFIGS = [
 ]
 function ControlVisual() {
   return (
-    <div className="relative h-56 w-full overflow-hidden">
+    <div className="relative h-40 w-full overflow-hidden sm:h-56">
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 80% at 40% 60%,rgba(255,140,60,0.2),rgba(61,124,255,0.15),transparent 75%)' }} />
       <div className="absolute inset-0 flex items-center justify-center gap-8">
         {SLIDER_CONFIGS.map((s, i) => (
-          <div key={i} className="relative flex h-40 w-9 flex-col items-center">
+          <div key={i} className="relative flex h-28 w-7 flex-col items-center sm:h-40 sm:w-9">
             {/* track */}
             <div className="relative h-full w-[3px] overflow-hidden rounded-full bg-white/10">
               <motion.div className="absolute bottom-0 w-full rounded-full"
@@ -133,10 +134,10 @@ function ControlVisual() {
 const FLEX_ICONS = ['⚡', '✳', '◎', '⊕', '🛡', '⚡', '✦', '❊']
 function FlexibilityVisual() {
   return (
-    <div className="relative h-56 w-full overflow-hidden">
+    <div className="relative h-40 w-full overflow-hidden sm:h-56">
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 80% at 50% 55%,rgba(255,140,60,0.15),rgba(61,124,255,0.2),transparent 75%)' }} />
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-2">
           {FLEX_ICONS.map((ic, i) => (
             <motion.div key={i}
               className="flex h-12 w-12 items-center justify-center rounded-2xl text-lg text-white"
@@ -163,11 +164,11 @@ const ITEMS = [
 
 export default function Differentiators() {
   return (
-    <section className="px-5 py-20 sm:px-8">
+    <section className="px-4 py-14 sm:py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
-            <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
               What sets EXSORA apart
             </h2>
           </Reveal>

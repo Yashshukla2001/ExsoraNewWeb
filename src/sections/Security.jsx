@@ -11,13 +11,13 @@ const FEATURES = [
 
 export default function Security() {
   return (
-    <section className="px-5 py-24 sm:px-8">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
+    <section className="px-4 py-14 sm:py-24 sm:px-8">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-2">
 
         {/* ── LEFT – text content ── */}
         <Reveal variant="left">
           <Eyebrow icon={HiOutlineShieldCheck}>Data and privacy</Eyebrow>
-          <h2 className="mt-3 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <h2 className="mt-3 text-balance text-2xl font-semibold tracking-tight text-white sm:text-4xl">
             Multi-Layer Security
           </h2>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-secondary">
@@ -43,7 +43,7 @@ export default function Security() {
 
         {/* ── RIGHT – live motion visual ── */}
         <Reveal variant="right" delay={0.1}>
-          <div className="relative flex aspect-square w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-orange-500/15 via-surface to-blue-500/15">
+          <div className="relative flex aspect-video w-full sm:aspect-square items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-orange-500/15 via-surface to-blue-500/15">
 
             {/* dot grid */}
             <div className="absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.07)_1px,transparent_1px)] [background-size:20px_20px]" />

@@ -22,7 +22,7 @@ export default function Footer() {
     <footer className="relative overflow-hidden border-t border-white/5 pt-20">
       <div className="pointer-events-none absolute inset-0 bg-footer-glow" />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8">
         <Reveal variant="scale" className="overflow-hidden">
           <motion.h2
             aria-hidden="true"
@@ -44,7 +44,7 @@ export default function Footer() {
           </motion.h2>
         </Reveal>
 
-        <div className="relative mt-14 grid grid-cols-2 gap-10 pb-16 sm:mt-20 sm:grid-cols-4 sm:gap-8">
+        <div className="relative mt-8 grid grid-cols-2 gap-6 pb-14 sm:mt-14 sm:grid-cols-4 sm:gap-8">
           {COLUMNS.map((col) => (
             <div key={col.title}>
               <h3 className="mb-4 text-sm font-medium text-white">{col.title}</h3>
@@ -61,7 +61,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/5 py-8 text-xs text-muted sm:flex-row">
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/5 py-6 text-xs text-muted sm:flex-row">
           <span>All rights reserved for @EXSORA — {new Date().getFullYear()}</span>
           <div className="flex items-center gap-4">
             {SOCIALS.map((s) => (

@@ -10,7 +10,7 @@
   box-sizing: border-box;
 }
 
-html {
+/* html {
   scroll-behavior: smooth;
 }
 
@@ -22,11 +22,64 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+} */
+/* html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
+body {
+  margin: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Inter', 'Inter Placeholder', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+} */
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  background: #000000;
+  color: #ffffff;
+  font-family: 'Inter', 'Inter Placeholder', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
 ::selection {
   background: rgba(61, 124, 255, 0.4);
   color: #ffffff;
+}
+
+/* Buttons that always keep a dark/colored background (hardcoded gradients/hex),
+   regardless of site theme — their label must always stay white. */
+/* Buttons that always keep a dark/colored background (hardcoded gradients/hex),
+   regardless of site theme — their label must always stay white. */
+.btn-onbrand-text {
+  color: #ffffff !important;
+}
+
+/* Industry icon badges — gradient-border technique with a solid fill.
+   Fill must match the page background per theme, or the icon (which
+   correctly darkens in light mode) becomes invisible against it. */
+.industry-badge {
+  background:
+    linear-gradient(#000, #000) padding-box,
+    linear-gradient(135deg, #ff8a3d, #ffc15e 35%, transparent 60%, #3d7cff) border-box;
+}
+
+html.light .industry-badge {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, #ff8a3d, #ffc15e 35%, transparent 60%, #3d7cff) border-box;
 }
 
 /* Slim, dark scrollbar */
@@ -148,3 +201,199 @@ body {
   }
 }
 
+
+/* ─── LIGHT MODE OVERRIDES ─── */
+/* ─── LIGHT MODE OVERRIDES ─── */
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  background:
+    radial-gradient(60% 45% at 15% 0%, rgba(255,140,60,0.10) 0%, rgba(255,140,60,0) 60%),
+    radial-gradient(55% 45% at 85% 0%, rgba(61,124,255,0.12) 0%, rgba(61,124,255,0) 60%),
+    radial-gradient(40% 35% at 50% 15%, rgba(90,209,255,0.08) 0%, rgba(90,209,255,0) 60%),
+    linear-gradient(180deg, #fbfcff 0%, #eef1f8 55%, #e9edf6 100%);
+  background-attachment: fixed;
+  color: #0a0e1a;
+}
+
+/* Preloader always stays true black, regardless of saved theme */
+html.light .preloader-shell {
+  background-color: #000000 !important;
+}
+
+html.light ::selection {
+  background: rgba(61, 124, 255, 0.18);
+  color: #0a0e1a;
+}
+
+/* Surfaces */
+html.light .bg-surface,
+html.light [class*="bg-surface"] {
+  background-color: #ffffff !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+html.light .bg-black {
+  background-color: #f3f6fc !important;
+}
+
+/* Glass effects — frosted, with a faint brand-tinted glow for a premium tech feel */
+html.light .glass {
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-color: rgba(15, 23, 42, 0.08) !important;
+  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06);
+}
+
+html.light .glass-strong {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(15, 23, 42, 0.1) !important;
+  box-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+}
+
+html.light .shadow-glass {
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.07) !important;
+}
+
+/* Text */
+html.light .text-white {
+  color: #0a0e1a !important;
+}
+
+html.light .hover\:text-white:hover {
+  color: #0a0e1a !important;
+}
+
+html.light .text-secondary {
+  color: #4b5468 !important;
+}
+
+html.light .text-muted {
+  color: #6f7890 !important;
+}
+
+html.light .text-white\/90 {
+  color: rgba(10, 14, 26, 0.9) !important;
+}
+
+html.light .text-white\/70,
+html.light .text-white\/60,
+html.light .text-white\/50 {
+  color: rgba(10, 14, 26, 0.58) !important;
+}
+
+html.light .text-white\/25 {
+  color: rgba(10, 14, 26, 0.22) !important;
+}
+
+/* Borders — cool slate, faintly blue for a tech-premium hairline */
+html.light .border-white\/8 {
+  border-color: rgba(30, 41, 59, 0.08) !important;
+}
+
+html.light .border-white\/10 {
+  border-color: rgba(30, 41, 59, 0.1) !important;
+}
+
+html.light .border-white\/15 {
+  border-color: rgba(30, 41, 59, 0.14) !important;
+}
+
+html.light .border-white\/20 {
+  border-color: rgba(30, 41, 59, 0.18) !important;
+}
+
+/* Backgrounds */
+html.light .bg-white\/\[0\.03\],
+html.light .bg-white\/\[0\.04\],
+html.light .bg-white\/\[0\.05\],
+html.light .bg-white\/\[0\.06\] {
+  background-color: rgba(37, 99, 235, 0.035) !important;
+}
+
+html.light .bg-black\/30,
+html.light .bg-black\/40,
+html.light .bg-black\/50,
+html.light .bg-black\/60 {
+  background-color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.light .bg-white\/10 {
+  background-color: rgba(37, 99, 235, 0.07) !important;
+}
+
+/* Gradient headline text needs a dark-based gradient to stay legible on a light background */
+html.light .text-gradient {
+  background: linear-gradient(90deg, #0a0e1a 0%, #2c4a8f 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  color: transparent !important;
+}
+
+/* Scrollbar */
+html.light ::-webkit-scrollbar-track {
+  background: #eef1f8;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #c3cbdd;
+}
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #9aa5c0;
+}
+
+/* Noise overlay — subtler, multiply reads cleaner on light backgrounds */
+html.light .noise-overlay {
+  opacity: 0.02;
+  mix-blend-mode: multiply;
+}
+
+/* Navbar in light mode — frosted pill with a faint brand-blue glow */
+html.light .fixed.inset-x-0.top-0 nav {
+  background: rgba(255, 255, 255, 0.65) !important;
+  border-color: rgba(30, 41, 59, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.08);
+}
+/* These two elements are intentionally always-dark "spotlight" cards,
+   independent of site theme — reset their text/border/bg back to the
+   original dark-theme values so they stay legible on their own dark fill. */
+html.light .dashboard-mock-shell .text-white,
+html.light .cta-dark-shell .text-white {
+  color: #ffffff !important;
+}
+
+html.light .dashboard-mock-shell .text-muted {
+  color: #6b7690 !important;
+}
+
+html.light .dashboard-mock-shell .text-secondary,
+html.light .cta-dark-shell .text-secondary {
+  color: #9ba9c4 !important;
+}
+
+html.light .dashboard-mock-shell .hover\:text-white:hover,
+html.light .cta-dark-shell .hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+html.light .dashboard-mock-shell .bg-white\/\[0\.03\],
+html.light .dashboard-mock-shell .bg-white\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+html.light .dashboard-mock-shell .bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.light .dashboard-mock-shell .bg-black\/30 {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+html.light .cta-dark-shell .border-white\/15 {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+html.light .cta-dark-shell .bg-white\/\[0\.04\] {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}

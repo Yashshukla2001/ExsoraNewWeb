@@ -60,7 +60,7 @@ export default function CustomCursor() {
   if (!enabled) return null
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[999]" aria-hidden="true">
+    <div className="pointer-events-none fixed inset-0 z-[10000]" aria-hidden="true">
       {/* fading splash trail */}
       {trail.map((p, i) => (
         <motion.span

@@ -22,12 +22,12 @@ export default function Pricing() {
   const [yearly, setYearly] = useState(false)
 
   return (
-    <section id="pricing" className="px-5 py-24 sm:px-8">
+   <section id="pricing" className="scroll-mt-24 px-4 py-14 sm:py-24 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <Reveal>
             <Eyebrow icon={HiOutlineCurrencyDollar}>Pricing</Eyebrow>
-            <h2 className="mt-2 text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-2 text-balance text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">
               Simple pricing for every scale
             </h2>
           </Reveal>
@@ -51,10 +51,10 @@ export default function Pricing() {
           </div>
         </Reveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-3">
           {PLANS.map((plan, i) => (
             <Reveal key={plan.name} variant="scale" delay={i * 0.08}>
-              <div className={`relative flex h-full flex-col rounded-3xl border p-8 ${plan.highlight ? 'border-accent-blue/40 bg-surface shadow-glow-blue' : 'border-white/8 bg-surface'}`}>
+              <div className={`relative flex h-full flex-col rounded-3xl border p-5 sm:p-8 ${plan.highlight ? 'border-accent-blue/40 bg-surface shadow-glow-blue' : 'border-white/8 bg-surface'}`}>
                 {plan.highlight && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-accent-orange to-accent-blue px-4 py-1 text-xs font-semibold text-black">
                     Most Popular
@@ -64,7 +64,7 @@ export default function Pricing() {
                 <div className="mt-4 flex items-end gap-1">
                   <motion.span key={yearly ? 'y' : 'm'}
                     initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }}
-                    className="text-4xl font-bold text-white"
+                    className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl"
                   >
                     ${yearly ? plan.yearly : plan.monthly}
                   </motion.span>
@@ -84,10 +84,10 @@ export default function Pricing() {
           ))}
 
           <Reveal variant="scale" delay={0.18}>
-            <div className="flex h-full flex-col justify-between rounded-3xl border border-white/8 bg-gradient-to-br from-surface to-black p-8">
+            <div className="flex h-full flex-col justify-between rounded-3xl border border-white/8 bg-gradient-to-br from-surface to-black p-5 sm:p-8">
               <div>
                 <span className="text-sm text-secondary">Go for more power</span>
-                <h3 className="mt-1 text-3xl font-bold tracking-tight text-white">HyperSonic</h3>
+                <h3 className="mt-1 text-2xl font-bold tracking-tight text-white sm:text-3xl">HyperSonic</h3>
                 <p className="mt-3 text-sm leading-relaxed text-secondary">Unlimited automation with dedicated enterprise support.</p>
                 <hr className="my-6 border-white/8" />
                 <ul className="space-y-3.5">

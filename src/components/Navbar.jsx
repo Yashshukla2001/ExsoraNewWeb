@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
-import { HiOutlineEnvelope } from 'react-icons/hi2'
+import { HiOutlineEnvelope, HiOutlineSun, HiOutlineMoon } from 'react-icons/hi2'
 import { FaWhatsapp } from 'react-icons/fa6'
 import Button from './Button'
+import { useTheme } from '../hooks/useTheme'
 
 const LINKS = [
   { label: 'AI Solutions', href: '#platform' },
@@ -18,6 +19,7 @@ const EMAIL_ADDRESS   = 'hello@exsora.ai'
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const { dark, toggle } = useTheme()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -31,18 +33,18 @@ export default function Navbar() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-x-0 top-0 z-50"
+      className="fixed inset-x-0 top-0 z-[9999]"
     >
       <div
-        className={`mx-auto flex max-w-7xl items-center justify-between px-5 transition-all duration-500 sm:px-8 ${
-          scrolled ? 'py-3' : 'py-6'
+        className={`mx-auto flex max-w-7xl items-center justify-between overflow-hidden px-4 transition-all duration-500 sm:px-8 ${
+          scrolled ? 'py-3' : 'py-4 sm:py-6'
         }`}
       >
-        {/* Logo */}
-      <a href="#top" data-cursor="link" className="flex items-center gap-0.5">
-  <img src="/logo.png" alt="EXSORA" className="h-12 w-13 shrink-0 object-contain" />
-  <span className="text-xl font-bold tracking-tighter text-white">EXSORA</span>
-</a>
+        {/* Logo — min-w-0 + shrink-0 prevent overflow */}
+        <a href="#top" data-cursor="link" className="flex shrink-0 items-center gap-1">
+          <img src="/logo.png" alt="EXSORA" className="h-8 w-8 shrink-0 object-contain sm:h-10 sm:w-10" />
+          <span className="text-base font-bold tracking-tighter text-white sm:text-xl">EXSORA</span>
+        </a>
 
         {/* Centre nav pill */}
         <nav
@@ -80,6 +82,31 @@ export default function Navbar() {
             <HiOutlineEnvelope size={16} />
           </a>
 
+          {/* Dark / Light toggle */}
+          <motion.button
+            onClick={toggle}
+            data-cursor="link"
+            aria-label="Toggle dark/light mode"
+            whileTap={{ scale: 0.88 }}
+            className="grid h-9 w-9 place-items-center rounded-full border border-white/15 bg-white/[0.04] text-secondary transition-all duration-200 hover:border-accent-gold/50 hover:bg-accent-gold/10 hover:text-accent-gold"
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {dark ? (
+                <motion.span key="sun"
+                  initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <HiOutlineSun size={16} />
+                </motion.span>
+              ) : (
+                <motion.span key="moon"
+                  initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
+                  <HiOutlineMoon size={16} />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
+
           <Button variant="glow" as="a" href="#pricing" className="px-5 py-2.5">
             Get Started
           </Button>
@@ -106,10 +133,17 @@ export default function Navbar() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="mx-4 overflow-hidden rounded-3xl glass-strong lg:hidden"
           >
-            <div className="flex flex-col gap-1 p-4">
+           <div className="relative z-10 flex flex-col gap-1 p-4">
               {LINKS.map((l) => (
-                <a key={l.label} href={l.href} onClick={() => setOpen(false)}
-                  className="rounded-xl px-4 py-3 text-base text-secondary hover:bg-white/5 hover:text-white">
+                <a key={l.label} href={l.href}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setOpen(false)
+                    setTimeout(() => {
+                      document.querySelector(l.href)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                    }, 380)
+                  }}
+                  className="relative z-10 cursor-pointer rounded-xl px-4 py-3 text-base text-secondary hover:bg-white/5 hover:text-white">
                   {l.label}
                 </a>
               ))}
@@ -123,6 +157,11 @@ export default function Navbar() {
                   className="flex flex-1 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] py-3 text-sm text-secondary hover:text-accent-cyan">
                   <HiOutlineEnvelope size={16} /> Email
                 </a>
+                {/* Theme toggle mobile */}
+                <button onClick={toggle}
+                  className="flex items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-3 py-3 text-sm text-secondary hover:text-accent-gold">
+                  {dark ? <HiOutlineSun size={16} /> : <HiOutlineMoon size={16} />}
+                </button>
               </div>
               <Button variant="glow" as="a" href="#pricing" className="mt-1 w-full" onClick={() => setOpen(false)}>
                 Get Started

@@ -39,6 +39,7 @@ function AuroraNet() {
         {/* two travelling data packets */}
         {[[0,7,1,2],[4,5,6,0]].map((path, pi) => (
           <motion.circle key={pi} r={2.5} fill={pi === 0 ? '#ffc15e' : '#5ad1ff'}
+             cx={NET_NODES[path[0]][0]} cy={NET_NODES[path[0]][1]}
             animate={{
               cx: path.map(idx => NET_NODES[idx][0]),
               cy: path.map(idx => NET_NODES[idx][1]),
@@ -66,22 +67,22 @@ function AuroraNet() {
 
 export default function ReadyCTA() {
   return (
-    <section className="px-5 py-20 sm:px-8">
+    <section className="px-4 py-14 sm:py-20 sm:px-8">
       <div className="mx-auto max-w-6xl">
         <Reveal variant="scale">
-          <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-surface"
+         <div className="cta-dark-shell relative overflow-hidden rounded-3xl border border-white/8 bg-surface"
             style={{ background: 'linear-gradient(135deg,rgba(12,15,22,0.98) 0%,rgba(8,10,18,0.96) 100%)' }}>
             {/* subtle grid */}
             <div className="pointer-events-none absolute inset-0 [background-image:radial-gradient(rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:24px_24px]" />
 
-            <div className="relative grid min-h-[340px] items-center gap-0 lg:grid-cols-2">
+            <div className="relative grid min-h-0 items-center gap-0 lg:grid-cols-2 lg:min-h-[340px]">
               {/* LEFT — CTA text */}
-              <div className="flex flex-col justify-center p-10 sm:p-14">
+              <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-14">
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                  className="text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl">
+                  className="text-2xl font-bold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">
                   Ready to get<br />started?
                 </motion.h2>
                 <motion.p
@@ -95,7 +96,7 @@ export default function ReadyCTA() {
                   initial={{ opacity: 0, y: 14 }} whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.22, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-8 flex flex-col gap-3 sm:max-w-xs">
+                  className="mt-6 flex flex-col gap-3">
                   {/* Get Started — white filled */}
                   <a href="#pricing" data-cursor="link"
                     className="flex items-center justify-center rounded-full bg-white py-3.5 text-sm font-semibold text-black transition-all duration-200 hover:bg-white/90 hover:shadow-[0_0_28px_rgba(255,255,255,0.25)]">
